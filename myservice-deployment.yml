@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ikramdocker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myservice
+  template:
+    metadata:
+      labels:
+        app: myservice
+    spec:
+      containers:
+        - image: ikramsadik/my-service:tagname
+          imagePullPolicy: IfNotPresent
+          name: ikramdocker
+      restartPolicy: Always
